@@ -1,0 +1,5 @@
+com/openclassrooms/yourcaryourway/controller/ChatController.class
+com/openclassrooms/yourcaryourway/model/ChatModel.class
+com/openclassrooms/yourcaryourway/service/ChatService.class
+com/openclassrooms/yourcaryourway/configuration/WebSocketConfig.class
+com/openclassrooms/yourcaryourway/YourcaryourwayApplication.class
