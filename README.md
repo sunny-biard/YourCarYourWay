@@ -49,9 +49,10 @@ L'application est ensuite accessible sur **http://localhost:4200**.
 ## Vérifier le bon fonctionnement du chat
 
 1. Démarrer le backend, puis le frontend.
-2. Ouvrir **http://localhost:4200** dans le navigateur : le composant *PoC Chat Support* doit s'afficher.
-3. Saisir un message dans le champ texte et cliquer sur **Envoyer** (ou appuyer sur `Entrée`) : le message doit apparaître immédiatement dans la liste des messages, précédé de l'expéditeur (`Client` par défaut).
-4. Pour valider l'aspect **temps réel**, ouvrir une seconde fenêtre (ou un onglet en navigation privée) sur **http://localhost:4200** : un message envoyé depuis l'une des deux fenêtres doit apparaître instantanément dans l'autre, confirmant la diffusion via le broker STOMP (`/topic/public`).
+2. Ouvrir **http://localhost:4200** dans le navigateur : l'écran de sélection de rôle doit s'afficher.
+3. Sélectionner un rôle, puis attendre que le composant *PoC Chat Support* s'affiche.
+4. Saisir un message dans le champ texte et cliquer sur **Envoyer** (ou appuyer sur `Entrée`) : le message doit apparaître immédiatement dans la liste des messages, précédé de l'expéditeur (`Client` par défaut).
+5. Pour valider l'aspect **temps réel**, ouvrir une seconde fenêtre (ou un onglet en navigation privée) sur **http://localhost:4200** : un message envoyé depuis l'une des deux fenêtres doit apparaître instantanément dans l'autre, confirmant la diffusion via le broker STOMP (`/topic/public`).
 
 ## Structure du projet
 
