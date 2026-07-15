@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Client } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
-import { ChatMessage } from '../interfaces/chat-message';
+import { ChatMessage, SenderRole } from '../interfaces/chat-message';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +32,7 @@ export class ChatService {
         this.stompClient.activate();
     }
 
-    sendMessage(sender: string, content: string): void {
+    sendMessage(sender: SenderRole, content: string): void {
         if (this.stompClient && this.stompClient.connected) {
             const chatMessage: ChatMessage = { sender, content};
             this.stompClient.publish({

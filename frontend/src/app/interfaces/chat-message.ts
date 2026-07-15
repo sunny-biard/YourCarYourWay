@@ -1,4 +1,9 @@
+export enum SenderRole {
+  CLIENT = 'CLIENT',
+  SUPPORT = 'SUPPORT'
+}
+
 export interface ChatMessage {
-    sender: string;
-    content: string;
+  sender: SenderRole;
+  content: string;
 }

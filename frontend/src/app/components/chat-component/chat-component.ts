@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, signal } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ChatService } from '../../services/chat-service';
-import { ChatMessage } from '../../interfaces/chat-message';
+import { ChatMessage, SenderRole } from '../../interfaces/chat-message';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -12,7 +12,9 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './chat-component.html'
 })
 export class ChatComponent implements OnInit, OnDestroy {
-  sender = 'Client'; // Identifiant par défaut pour le PoC
+  // Sélection du rôle à l'arrivée sur le chat (suffisant pour les besoins du PoC).
+  role = signal<SenderRole | null>(null);
+  roles = SenderRole;
   messageContent = '';
   messages = signal<ChatMessage[]>([]);
   
@@ -26,9 +28,14 @@ export class ChatComponent implements OnInit, OnDestroy {
     });
   }
 
+  chooseRole(role: SenderRole): void {
+    this.role.set(role);
+  }
+
   send(): void {
-    if (this.messageContent.trim()) {
-      this.chatService.sendMessage(this.sender, this.messageContent);
+    const currentRole = this.role();
+    if (this.messageContent.trim() && currentRole) {
+      this.chatService.sendMessage(currentRole, this.messageContent);
       this.messageContent = '';
     }
   }

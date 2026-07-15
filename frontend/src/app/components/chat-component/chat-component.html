@@ -1,17 +1,26 @@
-<div class="chat-container">
-  <h2>PoC Chat Support</h2>
+<div class="chat-container" *ngIf="!role()">
+  <h2>Qui êtes-vous ?</h2>
+  <button (click)="chooseRole(roles.CLIENT)">Client</button>
+  <button (click)="chooseRole(roles.SUPPORT)">Support</button>
+</div>
+
+<div class="chat-container" *ngIf="role()">
+  <h2>PoC Chat Support — {{ role() }}</h2>
 
   <div class="messages-list" style="border: 1px solid #ccc; height: 300px; overflow-y: auto; padding: 10px;">
-    <div *ngFor="let msg of messages()">
-        <strong>{{ msg.sender }} :</strong> {{ msg.content }}
+    <div
+      *ngFor="let msg of messages()"
+      [style.text-align]="msg.sender === role() ? 'right' : 'left'"
+    >
+      <strong>{{ msg.sender }} :</strong> {{ msg.content }}
     </div>
   </div>
 
   <div class="input-box" style="margin-top: 10px;">
-    <input 
-      type="text" 
-      [(ngModel)]="messageContent" 
-      placeholder="Tapez votre message..." 
+    <input
+      type="text"
+      [(ngModel)]="messageContent"
+      placeholder="Tapez votre message..."
       (keyup.enter)="send()"
     />
     <button (click)="send()" [disabled]="!messageContent.trim()">Envoyer</button>
