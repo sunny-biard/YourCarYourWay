@@ -8,7 +8,7 @@ Preuve de concept (PoC) validant la faisabilité technique de la fonctionnalité
 
 - **Backend** : Java 17, Spring Boot 4.1 (Spring Web, Spring WebSocket/STOMP)
 - **Frontend** : Angular 22, `@stomp/stompjs`, `sockjs-client`
-- Aucune base de données n'est nécessaire pour ce PoC
+- **Base de données** : Aucune base de données n'est nécessaire pour ce PoC, mais le fichier de mise en place est présent à la racine du projet, sous le nom *scriptBDD.sql*
 
 ## Installation
 
